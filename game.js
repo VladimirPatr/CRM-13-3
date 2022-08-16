@@ -27,7 +27,13 @@
             };
 
 
-
+            function quiteGame() {
+               result.rokResult= 0;
+               result.currentMove = 0;
+               result.player = 5;
+               result. computer = 5;
+               return start()
+            }
             function rokPlay() {
                let playerAnswer = prompt('камень, ножницы, бумага?'); 
                if (playerAnswer === null) {
@@ -40,7 +46,6 @@
                   }; 
                  }; 
             
-               
                   playerAnswer = playerAnswer.toLowerCase();
 
                   let playerMath;
@@ -82,11 +87,7 @@
                   console.log(result.player, result.computer);
                   let repeatQuestion = confirm("Хотите играть еще?");
                   if (repeatQuestion){
-                     result.rokResult= 0;
-                     result.currentMove = 0;
-                     result.player = 5;
-                     result. computer = 5;
-                  return start()
+                     return quiteGame()
                   }
                   if (!repeatQuestion){
                      return
@@ -112,7 +113,6 @@
                   };
                };  
 
-
                function compFirst() {
                   alert('Ход компа');
                   result.currentMove++;
@@ -121,11 +121,7 @@
                      console.log(result.player, result.computer);
                      let repeatQuestion = confirm("Хотите играть еще?");
                      if (repeatQuestion){
-                        result.rokResult= 0;
-                        result.currentMove = 0;
-                        result.player = 5;
-                        result. computer = 5;
-                     return start()
+                     return quiteGame()
                      }
                      if (!repeatQuestion){
                         return
