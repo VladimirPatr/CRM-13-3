@@ -82,8 +82,6 @@
                   };
             };
               function playFirst() {
-               alert('Ход игрока');
-              
                if (result.computer <= 0 || result.player <= 0){
                   alert(`Game over: Компьютер ${result.computer}  Игрок ${result.player}`);
                   console.log(result.player, result.computer);
@@ -95,9 +93,9 @@
                      return
                   }; 
                   }
+                  alert('Ход игрока');
                   let playerAnswer = prompt(`Введите число от 1 до ${result.player}.`);
                   const compAnswer = getRandomIntInclusive(1,2);
-                  console.log("Ответ компьютера" + '  ' + compAnswer);
                   if (playerAnswer === null) {
                      return 
                      };
@@ -108,19 +106,19 @@
                   else if (playerAnswer % 2 === 0 & compAnswer % 2 === 0 || playerAnswer % 2 !== 0 & compAnswer % 2 !== 0){
                      result.currentMove++;
                         result.computer += playerAnswer; result.player -= playerAnswer;
-                        console.log ('Компьютер' + '  ' + result.computer + '  ' + 'Игрок ' + '  ' + result.player);
+                        alert ('Компьютер угадал' + ' ' + 'Компьютер' + '  ' + result.computer + '  ' + 'Игрок ' + '  ' + result.player);
                      return start()
                   }  
                   else {
                      result.currentMove++;
                      result.player += playerAnswer; result.computer -= playerAnswer;
-                     console.log ('Компьютер' + '  ' + result.computer + '  ' + 'Игрок ' + '  ' + result.player);
+                     alert ('Компьютер неугадал' + ' ' + 'Компьютер' + '  ' + result.computer + '  ' + 'Игрок ' + '  ' + result.player);
                         return start()
                   };
                };  
 
                function compFirst() {
-                  alert('Ход компа');
+                  
                   result.currentMove++;
                   if (result.computer <= 0 || result.player <= 0){
                      alert(`Game over: Компьютер ${result.computer}  Игрок ${result.player}`);
@@ -133,18 +131,18 @@
                         return
                      };
                   };
-
+                  alert('Ход компа');
                   const compAnswer = getRandomIntInclusive(1, result.computer);
                      console.log ('Компьютер загадал' + '  ' + compAnswer);
                      let playerAnswer = confirm('Число четное?');
                      if (playerAnswer & compAnswer % 2 == 0  || !playerAnswer & compAnswer % 2 !== 0) {
                      result.player += compAnswer; result.computer -= compAnswer;
-                     console.log (' Угадал'  + '  ' + 'Компьютер' + '  ' + result.computer + '  ' + 'Игрок ' + '  ' + result.player);
+                     alert ('Компьютер загадал' + '  ' + compAnswer + '  ' + 'Угадал'  + '  ' + 'Компьютер' + '  ' + result.computer + '  ' + 'Игрок ' + '  ' + result.player);
                      return start()
                      }
                      else {
                      result.player -= compAnswer; result.computer += compAnswer;
-                     console.log (' Неугадал'  + '  ' + 'Компьютер' + '  ' + result.computer + '  ' + 'Игрок ' + '  ' + result.player);
+                     alert('Компьютер загадал' + '  ' + compAnswer  + '  ' + 'Неугадал'  + '  ' + 'Компьютер' + '  ' + result.computer + '  ' + 'Игрок ' + '  ' + result.player);
                      return start()
                      };
                };
