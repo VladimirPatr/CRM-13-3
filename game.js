@@ -34,6 +34,8 @@
                result. computer = 5;
                return start()
             }
+
+
             function rokPlay() {
                let playerAnswer = prompt('камень, ножницы, бумага?'); 
                if (playerAnswer === null) {
@@ -93,10 +95,14 @@
                      return
                   }; 
                   }
-                  let playerAnswer = Number(prompt(`Введите число от 1 до ${result.player}.`));
+                  let playerAnswer = prompt(`Введите число от 1 до ${result.player}.`);
                   const compAnswer = getRandomIntInclusive(1,2);
                   console.log("Ответ компьютера" + '  ' + compAnswer);
-                  if (playerAnswer === null || playerAnswer < 1 ||  playerAnswer > result.player || playerAnswer.length == 0  || isNaN(playerAnswer)) {
+                  if (playerAnswer === null) {
+                     return 
+                     };
+                  playerAnswer = Number(playerAnswer);
+                  if (playerAnswer < 1 ||  playerAnswer > result.player || playerAnswer.length == 0  || isNaN(playerAnswer)) {
                      return playFirst()
                      }
                   else if (playerAnswer % 2 === 0 & compAnswer % 2 === 0 || playerAnswer % 2 !== 0 & compAnswer % 2 !== 0){
